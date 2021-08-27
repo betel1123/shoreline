@@ -1,0 +1,62 @@
+{
+    "rules":
+    [
+        {
+            "direction" : "Inbound",
+            "priority" : 100,
+            "name" : "RDP01",
+            "description" : "Allow RDP port 3389 from office",
+            "source_address_prefix" : "111.222.0.0/16",
+            "source_address_prefixes" : "",
+            "source_port_range" : "*",
+            "destination_address_prefix" : "*",
+            "destination_address_prefixes" : "",
+            "destination_port_range" : "3389",
+            "protocol" : "Tcp",
+            "access" : "Allow"
+        },
+        {
+            "direction" : "Inbound",
+            "priority" : 101,
+            "name" : "HTTPS",
+            "description" : "Allow HTTPS",
+            "source_address_prefix" : "Internet",
+            "source_address_prefixes" : "",
+            "source_port_range" : "*",
+            "destination_address_prefix" : "*",
+            "destination_address_prefixes" : "",
+            "destination_port_range" : "443",
+            "protocol" : "Tcp",
+            "access" : "Allow"
+        },
+        {
+            "direction" : "Inbound",
+            "priority" : 102,
+            "name" : "SSH",
+            "description" : "Block SSH",
+            "source_address_prefix" : "*",
+            "source_address_prefixes" : "",
+            "source_port_range" : "*",
+            "destination_address_prefix" : "*",
+            "destination_address_prefixes" : "",
+            "destination_port_range" : "22",
+            "protocol" : "Tcp",
+            "access" : "Deny"
+        },
+        {
+            "direction" : "Outbound",
+            "priority" : 100,
+            "name" : "Malicious Site",
+            "description" : "Bad URL filtering",
+            "source_address_prefix" : "*",
+            "source_address_prefixes" : "",
+            "source_port_range" : "*",
+            "destination_address_prefix" : "123.123.123.123",
+            "destination_address_prefixes" : "",
+            "destination_port_range" : "*",
+            "protocol" : "Tcp",
+            "access" : "Deny"
+        }
+    ]
+
+}
